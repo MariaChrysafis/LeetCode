@@ -49,7 +49,6 @@ func maxBalancedSubsequenceSum(nums []int) int64 {
     st.build(n + 10)
     for i := 0; i < len(st.vec)/2; i++ {
         st.update(i, -1e15)
-        fmt.Print(st.query(i, i))
     }
     st.update(0, 0)
     for i, x := range nums {
