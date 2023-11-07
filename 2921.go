@@ -53,7 +53,6 @@ func maxProfit(prices []int, profits []int) int {
     ans := int64(-1e9)
     j1 := 0
     j2 := 0
-    fmt.Println(vec)
     for i := 0; i < n; i++ {
         for j1 != n && vec[j1][0] == vec[i][0] {
             st2.update(vec[j1][1], int64(-1e9))
