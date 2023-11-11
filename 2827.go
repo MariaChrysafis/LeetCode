@@ -13,8 +13,8 @@ func numberOfBeautifulIntegers(low int, high int, k int) int {
     for i := 1; i <= 9; i++ {
         powr[i] = powr[i - 1] * 10
     }
-    var countNum func(dig int, high int, eo int, mod int, k int, lead int) int
-    countNum = func (dig int, high int, eo int, mod int, k int, lead int) int {
+    var countNum func(dig int, high int, eo int, mod int, lead int) int
+    countNum = func (dig int, high int, eo int, mod int, lead int) int {
         if high == 0 && dig == -1 {
             if mod == 0 && eo == 0 {
                 return 1
@@ -42,10 +42,10 @@ func numberOfBeautifulIntegers(low int, high int, k int) int {
             } else if !(lead == 1 && i == 0){
                 new_eo += 1
             }
-            ans += countNum(dig - 1, new_powr, new_eo,  new_mod, k, new_lead)
+            ans += countNum(dig - 1, new_powr, new_eo, new_mod, new_lead)
         }
         myMap[dig + 1][eo + 10][mod][int(lead)][high] = ans
         return ans
     }
-    return countNum(9, high, 0, 0, k, 1) - countNum(9, low - 1, 0, 0, k, 1)
+    return countNum(9, high, 0, 0, 1) - countNum(9, low - 1, 0, 0, 1)
 }
